@@ -1,3 +1,2 @@
-This is simple text file
 adding 2nd line
 adding 3rd line
