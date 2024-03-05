@@ -1,0 +1,24 @@
+name: env variable test
+
+on:
+  push:
+    branches:
+      - master
+      
+jobs:
+  Env_Variables:
+    name: Env Variables
+    runs-on: ubuntu-latest
+    env:
+      IS_BOOLEAN: false
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.1.0
+    - name: Check environment variable
+      run: |
+        if [ "${{ env.IS_BOOLEAN }}" == "true" ]; then
+          echo "You can see this message, because \"false\" String evaluates to Boolean.TRUE value"
+        fi
+        if [ "${{ env.IS_BOOLEAN }}" == "false" ]; then
+          echo "You can see this message, because \"false\".toBoolean() returns Boolean.FALSE value"
+        fi
